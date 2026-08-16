@@ -1,0 +1,80 @@
+/* ==========================================================================
+   커스텀 디자인 설정 (Custom Design Settings)
+   ------------------------------------------------------------------------
+   아래 :root { ... } 안의 값을 원하는 색상/폰트로 바꾸면 사이트 전체
+   디자인이 바뀝니다. site.css는 건드릴 필요가 없습니다.
+   Change the values inside :root { ... } below to re-skin the entire
+   site. You should not need to edit site.css.
+
+   사용법: 원하는 항목의 주석(/* */)을 해제하고 값을 바꾼 뒤 저장하세요.
+   How to use: uncomment the line you want to change, then edit its value.
+   ========================================================================== */
+
+:root {
+    /* ---- 색상 (Colors) ---- */
+    /* --color-white: #ffffff; */       /* 흰색 (배경, 버튼 텍스트 등) */
+    /* --color-black: #000000; */       /* 검정색 (아웃라인 버튼/알림 텍스트) */
+    /* --color-text: #1d1313; */        /* 본문 기본 텍스트 색상 */
+    /* --color-heading: #333333; */     /* 제목(h1~h6)/강조 텍스트 색상 */
+    /* --color-link: #333333; */        /* 링크 색상 */
+    /* --color-link-hover: #333333; */  /* 링크 hover 색상 */
+    /* --color-accent: #0d6efd; */      /* nav 링크 등 강조색 */
+    /* --color-accent-hover: #0a58ca; */ /* 강조색 hover */
+    /* --color-meta: #738491; */        /* 날짜/메타 정보 텍스트 색상 */
+    /* --color-muted: #6c757d; */       /* 캡션/비활성 텍스트 색상 */
+    /* --color-quote: #7a7a7a; */       /* 인용구(blockquote) 텍스트 색상 */
+    /* --color-quote-border: #e5e5e5; */ /* 인용구 좌측 테두리 색상 */
+    /* --color-border: #dcdcdc; */      /* 구분선(hr) 색상 */
+    /* --color-border-light: #dddddd; */ /* 코드블록/테이블 테두리 색상 */
+    /* --color-code-bg: #f7f7f7; */     /* 코드블록 배경색 */
+    /* --color-aside: #29627e; */       /* aside(사이드 박스) 텍스트/그림자 색상 */
+
+    /* ---- 상태/강조 색상 (alert, button) ---- */
+    /* --color-info: #2196f3; */
+    /* --color-warning: #ff9800; */
+    /* --color-success: #4caf50; */
+    /* --color-danger: #f44336; */
+    /* --color-dark: #555555; */
+    /* --color-light: #e7e7e7; */
+
+    /* ---- 폰트 (Fonts) ---- */
+    --font-body: sans-serif;            /* 본문 폰트 */
+    /* --font-heading: var(--font-body); */ /* 제목 폰트 */
+    /* --font-code: SFMono-Regular, Menlo, Monaco, Consolas, monospace; */ /* 코드블록 폰트 */
+
+    /* ---- 여백 (Spacing) ---- */
+    /* --content-gutter: 1.5rem; */     /* 본문 좌우 여백 */
+}
+
+/* ==========================================================================
+   고급 커스터마이징 (변수로 처리되지 않는 세부 스타일)
+   Advanced overrides (not covered by the variables above)
+   ========================================================================== */
+
+/* 본문 글 첫 글자를 크게 보여주는 스타일 (드롭캡) */
+.first-letter {
+	font-family: "Noto Serif Display";
+	font-size: 4rem;
+	float: left;
+}
+
+/* 블로그 글 제목 굵기 */
+.content .blog-post-title {
+    font-weight: 600 !important;
+}
+
+/* 목록(list) 좌측 여백 제거 */
+ul li {
+	margin-left: 0rem;
+}
+
+/* 상단 네비게이션 메뉴 여백 */
+.nav li {
+    padding: 0 0rem 0 1rem;
+}
+
+/* 본문 콘텐츠 글자 크기/줄간격 */
+.content .markdown {
+    font-size: 1.0625rem;
+    line-height: 2rem;
+}
