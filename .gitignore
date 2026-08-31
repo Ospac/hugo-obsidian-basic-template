@@ -19,3 +19,7 @@ hugo.linux
 
 # obsidian
 .obsidian
+
+# editor
+.zed
+.vscode

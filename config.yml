@@ -39,7 +39,7 @@ params:
   copyrights: 저작권자 이름
 
   # path to the favicon directory
-  # see ./layouts/_default/baseof.html line #30 to line #37
+  # see ./layouts/baseof.html line #30 to line #37
   #  faviconpath: "/img/favicon"
 
   # 홈 화면 상단에 표시되는 짧은 소개글
