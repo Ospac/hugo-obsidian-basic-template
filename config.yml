@@ -1,6 +1,6 @@
 baseURL: "/"
 locale: ko-KR
-title: "basic"
+title: "홈페이지 제목"
 author: ksh
 
 enableEmoji: true
@@ -13,13 +13,13 @@ markup:
       unsafe: true
 menu:
   primary:
-    - name: Home
+    - name: 홈
       url: /
       weight: 1
-    - name: About
-      url: /about
+    - name: 소개
+      url: /about/
       weight: 2
-    - name: Subscribe
+    - name: RSS 구독
       url: /index.xml
       weight: 3
 
@@ -35,15 +35,15 @@ languages:
     # contentDir: content/blog/en
 
 params:
-  sitename: "basic theme"
-  copyrights: 홍길동
+  sitename: "홈페이지 이름"
+  copyrights: 저작권자 이름
 
   # path to the favicon directory
   # see ./layouts/_default/baseof.html line #30 to line #37
   #  faviconpath: "/img/favicon"
 
-  # a brief about me
-  brief_about: <center>hey world!</center>
+  # 홈 화면 상단에 표시되는 짧은 소개글
+  brief_about: <center>안녕하세요 저는 새로운 코드를 기다리고 있어요</center>
 
   # 아래는 설정하지 않아도 되지만, 템플릿이 알아서 사용하는 선택 항목입니다.
 

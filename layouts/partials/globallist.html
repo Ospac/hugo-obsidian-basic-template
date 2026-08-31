@@ -10,14 +10,14 @@
     </h4>
     <div class="meta-data">
       <span class="meta-data">
-	{{ if .Params.categories }}
-	[ {{ delimit .Params.categories ", " }} ]
-	{{ else }}
-	[ {{ .Section }} ]
-	{{ end }}
+        {{ if .Params.categories }}
+        [ {{ delimit .Params.categories ", " }} ]
+        {{ else }}
+        [ {{ .Section }} ]
+        {{ end }}
       </span>
       <time class="meta-data middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">
-	{{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}
+	      {{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}
       </time>
     </div>
   </li>

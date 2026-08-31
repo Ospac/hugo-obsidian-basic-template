@@ -4,22 +4,25 @@
    ========================================================================== */
 :root {
   /* ---- 색상 (Colors) ---- */
-  --color-white: #ffffff;
-  --color-text: #1d1313;
-  --color-heading: #333333;
-  --color-link: #333333;
-  --color-link-hover: #333333;
-  --color-accent: #0d6efd;
-  --color-accent-hover: #0a58ca;
-  --color-meta: #738491;
-  --color-muted: #6c757d;
-  --color-caption: #586069;
-  --color-quote: #7a7a7a;
-  --color-quote-border: #e5e5e5;
-  --color-border: #dcdcdc;
-  --color-border-light: #dddddd;
-  --color-code-bg: #f7f7f7;
-  --color-code-bg-inline: rgba(27, 31, 35, 0.05);
+  --color-body-bg: #d8d1d8;
+  --color-markdown-code-bg: #ffffff;
+  --color-body-text: #1d1313;
+  --color-heading-text: #333333;
+  --color-content-text: #333333;
+  --color-link-text: #333333;
+  --color-link-text-hover: #333333;
+  --color-nav-link: #0d6efd;
+  --color-nav-link-hover: #0a58ca;
+  --color-meta-text: #738491;
+  --color-nav-link-disabled: #6c757d;
+  --color-caption-text: #586069;
+  --color-blockquote-text: #7a7a7a;
+  --color-blockquote-border: #e5e5e5;
+  --color-hr-border: #0d6efd;
+  --color-table-border: #dddddd;
+  --color-code-block-border: #dddddd;
+  --color-code-block-bg: #f7f7f7;
+  --color-code-inline-bg: rgba(27, 31, 35, 0.05);
 
   /* ---- 폰트 (Fonts) ---- */
   --font-body: "Open Sans", "Roboto", "Ubuntu", sans-serif;
@@ -48,7 +51,6 @@
   vertical-align: baseline;
   margin: 0;
   padding: 0;
-  text-decoration-skip: ink;
 }
 
 html {
@@ -66,8 +68,8 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-white);
+  color: var(--color-body-text);
+  background-color: var(--color-body-bg);
   max-width: 1000px;
   margin: auto;
   font-weight: 400;
@@ -108,7 +110,8 @@ a img {
 hr {
   margin: 1rem 0;
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-hr-border);
+  border-style: dashed;
   opacity: 1;
 }
 
@@ -207,7 +210,7 @@ h3 a {
 /* 링크 */
 
 a {
-  color: var(--color-link);
+  color: var(--color-link-text);
   text-decoration: underline;
   background-color: transparent;
 }
@@ -219,7 +222,7 @@ a:hover {
 
 a:hover,
 a:focus {
-  color: var(--color-link-hover);
+  color: var(--color-link-text-hover);
   text-decoration: underline;
 }
 
@@ -266,7 +269,7 @@ ul li {
 pre,
 code {
   font-family: var(--font-code);
-  background-color: var(--color-code-bg);
+  background-color: var(--color-code-block-bg);
 }
 
 table {
@@ -278,11 +281,11 @@ th,
 td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-table-border);
 }
 
 /* ==========================================================================
-   Layout Utilities (Bootstrap 스타일 그리드 유틸)
+   Layout
    ========================================================================== */
 
 .container {
@@ -296,16 +299,6 @@ td {
   }
 }
 @media (min-width: 992px) {
-  .container {
-    max-width: 800px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 800px;
-  }
-}
-@media (min-width: 1400px) {
   .container {
     max-width: 960px;
   }
@@ -325,11 +318,6 @@ td {
   margin-top: var(--bs-gutter-y);
 }
 
-.col-auto {
-  flex: 0 0 auto;
-  width: auto;
-}
-
 @media (min-width: 576px) {
   .col-sm-12 {
     flex: 0 0 auto;
@@ -345,42 +333,42 @@ td {
 }
 
 .justify-content-center {
-  justify-content: center !important;
+  justify-content: center;
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: center;
 }
 
 .mx-0 {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .mx-auto {
-  margin-right: auto !important;
-  margin-left: auto !important;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 768px) {
   .mx-md-4 {
-    margin-right: 1.5rem !important;
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 }
 
 .chunk-sm {
-  margin-right: 1.5rem !important;
-  margin-left: 1.5rem !important;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .d-inline {
-  display: inline !important;
+  display: inline;
 }
 
 .my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .mt-xl {
@@ -402,7 +390,7 @@ td {
 .header h1.name {
   font-weight: 600;
   font-size: 2.1875rem;
-  color: var(--color-heading);
+  color: var(--color-heading-text);
   font-family: var(--font-heading);
 }
 
@@ -421,7 +409,7 @@ td {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center !important;
+  justify-content: center;
   padding-left: 0;
   padding-bottom: 3rem;
   margin-top: 0;
@@ -430,7 +418,6 @@ td {
 }
 
 .nav ul {
-  display: table;
   margin-right: 2rem;
   margin-left: 0;
 }
@@ -445,7 +432,7 @@ td {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--color-accent);
+  color: var(--color-nav-link);
   text-decoration: none;
   transition:
     color 0.15s ease-in-out,
@@ -459,10 +446,10 @@ td {
 }
 .nav-link:hover,
 .nav-link:focus {
-  color: var(--color-accent-hover);
+  color: var(--color-nav-link-hover);
 }
 .nav-link.disabled {
-  color: var(--color-muted);
+  color: var(--color-nav-link-disabled);
   pointer-events: none;
   cursor: default;
 }
@@ -478,7 +465,7 @@ td {
 .content h5,
 .content h6 {
   font-weight: 600;
-  color: var(--color-heading);
+  color: var(--color-heading-text);
   margin-bottom: 1rem;
   font-family: var(--font-heading);
 }
@@ -486,12 +473,12 @@ td {
 .content .meta {
   font-weight: 400;
   font-size: 1rem;
-  color: var(--color-meta);
+  color: var(--color-meta-text);
   margin-bottom: 10px;
 }
 
 .content .meta-brief {
-  color: var(--color-meta);
+  color: var(--color-meta-text);
 }
 
 .content .meta a {
@@ -506,14 +493,14 @@ td {
 .content .caption {
   text-align: center;
   margin-top: 10px;
-  color: var(--color-caption);
+  color: var(--color-caption-text);
   font-size: 0.9rem;
 }
 
 .content .markdown {
   font-weight: 400;
   font-size: 1.125rem;
-  color: var(--color-heading);
+  color: var(--color-content-text);
   line-height: 1.75rem;
 }
 
@@ -569,7 +556,7 @@ table {
 }
 
 .single-page-title {
-  font-weight: 400 !important;
+  font-weight: 400;
 }
 
 .recent-articles {
@@ -579,7 +566,7 @@ table {
 .content .blog-post-title {
   font-size: 1.8rem;
   line-height: 2.625rem;
-  font-weight: 400 !important;
+  font-weight: 400;
 }
 
 .content .blog-post-content {
@@ -590,16 +577,16 @@ table {
 .content .markdown code,
 .content .markdown pre {
   font-family: var(--font-code);
-  background-color: var(--color-white);
+  background-color: var(--color-markdown-code-bg);
 }
 
 .content .markdown code {
   /* 인라인 코드 (single backtick) */
-  color: var(--color-heading);
+  color: var(--color-content-text);
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 1rem;
-  background-color: var(--color-code-bg-inline);
+  background-color: var(--color-code-inline-bg);
   border-radius: 6px;
 }
 
@@ -614,7 +601,7 @@ table {
   word-wrap: break-word;
   margin-left: var(--content-gutter);
   margin-right: var(--content-gutter);
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-code-block-border);
   border-radius: 6px;
 }
 
@@ -633,8 +620,8 @@ table {
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: var(--color-quote);
-  border-left: 0.25rem solid var(--color-quote-border);
+  color: var(--color-blockquote-text);
+  border-left: 0.25rem solid var(--color-blockquote-border);
 }
 
 .content .markdown blockquote p:last-child {
@@ -657,7 +644,7 @@ table {
 
 .content .meta-data {
   font-size: 1rem;
-  color: var(--color-meta);
+  color: var(--color-meta-text);
   margin-bottom: 2rem;
 }
 
