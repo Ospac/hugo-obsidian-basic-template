@@ -18,16 +18,18 @@
 				<div class="nav justify-content-center">
 					<ul>
 						{{ range .Site.Menus.primary.ByWeight }}
-						<li class="nav-item justify-content-center mx-auto">
-							<a
-								class="nav-link{{ if eq .URL page.RelPermalink }} active{{ end }}"
-								href="{{ .URL }}"
-							>
-								{{ .Pre }} {{ .Name }}
-							</a>
-						</li>
-						{{ end }} {{ if gt (len hugo.Sites) 1 }} {{ partial "listlanguages"
-						.}}{{end}}
+							<li class="nav-item justify-content-center mx-auto">
+								<a
+									class="nav-link{{ if eq .URL page.RelPermalink }} active{{ end }}"
+									href="{{ .URL }}"
+								>
+									{{ .Pre }} {{ .Name }}
+								</a>
+							</li>
+						{{ end }} 
+						{{ if gt (len hugo.Sites) 1 }} 
+							{{ partial "languages-list" . }}
+						{{end}}
 					</ul>
 				</div>
 			</div>

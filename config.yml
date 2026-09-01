@@ -19,9 +19,12 @@ menu:
     - name: 소개
       url: /about/
       weight: 2
-    - name: RSS 구독
-      url: /index.xml
+    - name: 웹로그
+      url: /weblog
       weight: 3
+    - name: 아카이브
+      url: /archive/
+      weight: 4
 
 # You can add languages!
 # https://gohugo.io/content-management/multilingual/
@@ -33,7 +36,6 @@ languages:
   en:
     label: English
     # contentDir: content/blog/en
-
 params:
   sitename: "홈페이지 이름"
   copyrights: 저작권자 이름
