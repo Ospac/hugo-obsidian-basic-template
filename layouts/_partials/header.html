@@ -1,38 +1,22 @@
-<style>
-	.active {
-		color: var(--color-nav-link-hover);
-		font-weight: bold;
-	}
-</style>
-<div class="mt-xl header">
+<div class="header">
 	<header>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div>
-					<a href="{{ .Site.BaseURL }}">
-						<h1 class="name text-center">{{ .Site.Params.sitename }}</h1>
+		<h1 class="name">
+			<a href="{{ .Site.BaseURL }}">{{ .Site.Params.sitename }}</a>
+		</h1>
+		<ul class="nav">
+			{{ range .Site.Menus.primary.ByWeight }}
+				<li>
+					<a
+						class="nav-link{{ if eq .URL page.RelPermalink }} active{{ end }}"
+						href="{{ .URL }}"
+					>
+						{{ .Pre }} {{ .Name }}
 					</a>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="nav justify-content-center">
-					<ul>
-						{{ range .Site.Menus.primary.ByWeight }}
-							<li class="nav-item justify-content-center mx-auto">
-								<a
-									class="nav-link{{ if eq .URL page.RelPermalink }} active{{ end }}"
-									href="{{ .URL }}"
-								>
-									{{ .Pre }} {{ .Name }}
-								</a>
-							</li>
-						{{ end }} 
-						{{ if gt (len hugo.Sites) 1 }} 
-							{{ partial "languages-list" . }}
-						{{end}}
-					</ul>
-				</div>
-			</div>
-		</div>
+				</li>
+			{{ end }}
+			<!--{{ if gt (len hugo.Sites) 1 }}
+				{{ partial "languages-list" . }}
+			{{end}}-->
+		</ul>
 	</header>
 </div>

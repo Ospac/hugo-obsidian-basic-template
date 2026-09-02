@@ -1,11 +1,18 @@
 {{ define "main" }}
-<div class="container">
-  <div class="my-5 text-center">
-    <h1 class="not-found">404</h1>
-    <p class="not-found">page not found</p>
-    <p>
-      <a class="not-found" href="{{ .Site.BaseURL }}">back to the homepage</a>
-    </p>
+<style>
+	.not-found { text-align: center; }
+	.not-found-title { margin-top: 3rem; }
+	.not-found-link {
+		display: inline-block;
+		padding-top: 2rem;
+		text-decoration: none;
+	}
+</style>
+<div class="page">
+  <div class="not-found">
+    <h1 class="not-found-title">404</h1>
+    <p class="not-found-text">page not found</p>
+    <a class="not-found-link" href="{{ .Site.BaseURL }}">back to the homepage</a>
   </div>
 </div>
 {{ end }}

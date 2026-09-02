@@ -20,7 +20,7 @@ menu:
       url: /about/
       weight: 2
     - name: 웹로그
-      url: /weblog
+      url: /weblog/
       weight: 3
     - name: 아카이브
       url: /archive/

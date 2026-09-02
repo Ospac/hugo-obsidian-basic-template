@@ -1,4 +1,4 @@
-<ul class="list-unstyled">
+<ul class="article-list">
   {{ $length := 5 }}
   {{ with ($.Site.Params.paginationLen) }}
   	{{ $length = $.Site.Params.paginationLen }}
@@ -9,14 +9,14 @@
 	      <a href="{{ .Permalink }}">{{ .Title }}</a>
 	    </h4>
 	    <div class="meta-data">
-	      <span class="meta-data">
+	      <span>
 	        {{ if .Params.categories }}
 	        	[ {{ delimit .Params.categories ", " }} ]
 	        {{ else }}
 	        	[ {{ .Section }} ]
 	        {{ end }}
 	      </span>
-	      <time class="meta-data middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">
+	      <time class="middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">
 		      {{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}
 	      </time>
 	    </div>

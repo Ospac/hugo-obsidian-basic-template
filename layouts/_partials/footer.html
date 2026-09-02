@@ -1,8 +1,12 @@
-<hr class="footer-linebreak" />
-<div class="container justify-content-center meta row">
-	<span class="row" id="footer">
-		{{ now.Year }} • {{ .Site.Params.copyrights }}
-	</span>
+<style>
+	.footer {
+		text-align: center;
+		font-family: var(--font-body);
+		font-weight: 300;
+	}
+</style>
+<div class="footer">
+	<span id="footer">{{ now.Year }} • {{ .Site.Params.copyrights }}</span>
 	<a href="/index.xml">RSS 구독</a>
 	<script defer src="{{.Site.BaseURL}}js/custom.js"></script>
 </div>

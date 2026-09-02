@@ -1,31 +1,29 @@
 {{ define "main" }}
 {{ partial "header" . }}
 <div class="content">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-8">
+  <div class="page">
 	<div class="markdown">
 	  {{ .Content }}
 	</div>
-	<div class="mx-0 mx-md-4 posts">
+	<div class="posts">
 	  <h1>{{ .Title }}</h1>
 	  <hr>
-	  <ul class="list-unstyled">
+	  <ul class="article-list">
 	    {{ range (where .Data.Pages.ByDate.Reverse ".Params.unlisted" "!=" "true") }}
 	    <li>
 	      <h2 class="meta-title">
 		<a href="{{ .Permalink }}">{{ .Title }}</a>
 	      </h2>
 	      <div class="meta-data">
-		<span class="meta-data">
+		<span>
 		  {{ if .Params.categories }}
 		  [ {{ delimit .Params.categories ", " }} ]
 		  {{ else }}
 		  [ {{ .Section }} ]
 		  {{ end }}
 		</span>
-		<time class="meta-data middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">{{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}</time>
-		<span class="meta-data middot">
+		<time class="middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">{{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}</time>
+		<span class="middot">
 		  {{ range .Params.tags }} #{{.}} {{end}}
 		</span>
 	      </div>
@@ -33,9 +31,7 @@
 	    {{ end }}
 	  </ul>
 	</div>
-      </div>
-    </div>
-    {{ partial "footer" . }}
   </div>
+  {{ partial "footer" . }}
 </div>
 {{ end }}

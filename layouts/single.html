@@ -1,16 +1,17 @@
 {{ define "main" }}
+	<style>
+		.page-title { 
+			font-weight: 400; 
+		}
+	</style>
 	{{ partial "header" . }}
 	<div class="content">
-	  <div class="container">
-	    <div class="row justify-content-center">
-	      <div class="col-sm-12 col-lg-8">
-	        <h1 class="mx-0 mx-md-4 single-page-title">{{ .Title }}</h1>
-	        <div class="markdown page-content">
-	          {{ .Content }}
-	        </div>
-	      </div>
-	      {{ partial "footer" . }}
-	    </div>
-	  </div>
+		<div class="page">
+			<h1 class="page-title">{{ .Title }}</h1>
+			<div class="markdown">
+				{{ .Content }}
+			</div>
+			{{ partial "footer" . }}
+		</div>
 	</div>
 {{ end }}
