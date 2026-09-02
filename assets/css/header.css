@@ -1,0 +1,51 @@
+.header {
+  margin-top: 60px;
+}
+.header h1.name {
+  font-weight: 600;
+  font-size: 2.1875rem;
+  color: var(--color-heading-text);
+  font-family: var(--font-heading);
+  text-align: center;
+}
+.header a {
+  text-decoration: none;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+
+/* 상단 내비게이션 */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 1.25rem;
+	margin-bottom: 0;	
+  list-style: none;
+}
+.nav li {
+  list-style-type: none;
+  display: table-cell;
+  font-size: 1.06rem;
+	padding: 0 0rem 0 1rem;
+
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--color-nav-link);
+  text-decoration: none;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--color-nav-link-hover);
+}
+.nav-link.active {
+  color: var(--color-nav-link-hover);
+  font-weight: 600;
+}
