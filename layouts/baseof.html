@@ -51,7 +51,13 @@
   </head>
 
   <body>
-    {{ block "main" . }}{{ end }}
+    {{ partial "header" . }}
+    <div class="content">
+      <div class="page">
+        {{ block "main" . }}{{ end }}
+        {{ partial "footer" . }}
+      </div>
+    </div>
   </body>
 
 </html>

@@ -1,22 +1,16 @@
 {{ define "main" }}
-	{{ partial "header" . }}
-	<div class="content">
-		<div class="page">
-			<div class="markdown">
-				{{ partial "content" . }}
-			</div>
-			<div class="posts">
-				<ul class="article-list">
-					{{ range sort .Pages "Title" "asc" }}
-					<li>
-						<a href="{{ .Permalink }}">
-							<span>{{ .Title }}</span>
-						</a>
-					</li>
-					{{ end }}
-				</ul>
-			</div>
-			{{ partial "footer" . }}
-		</div>
+	<div class="markdown">
+		{{ .Content }}
+	</div>
+	<div class="posts">
+		<ul class="article-list">
+			{{ range sort .Pages "Title" "asc" }}
+			<li>
+				<a href="{{ .Permalink }}">
+					<span>{{ .Title }}</span>
+				</a>
+			</li>
+			{{ end }}
+		</ul>
 	</div>
 {{ end }}

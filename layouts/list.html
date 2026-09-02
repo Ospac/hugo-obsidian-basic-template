@@ -1,34 +1,24 @@
 {{ define "main" }}
-	{{ partial "header" . }}
-	<div class="content">
-		<div class="page">
-			<h2>#{{ .Title }}</h2>
-			<hr>
-			{{ if eq .Kind "taxonomy" }}
-				{{ if eq .Title "Tags" }}
-					<ul style="list-style: disclosure-closed">
-						{{ range .Site.Taxonomies.tags }}
-							<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
-						{{ end }}
-					</ul>
+	<h2>#{{ .Title }}</h2>
+	<hr>
+	{{ if eq .Kind "taxonomy" }}
+		{{ if eq .Title "Tags" }}
+			<ul style="list-style: disclosure-closed">
+				{{ range .Site.Taxonomies.tags }}
+					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
 				{{ end }}
-				{{ if eq .Title "Categories" }}
-					<ul style="list-style: disclosure-closed">
-						{{ range .Site.Taxonomies.categories }}
-							<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
-						{{ end }}
-					</ul>
+			</ul>
+		{{ end }}
+		{{ if eq .Title "Categories" }}
+			<ul style="list-style: disclosure-closed">
+				{{ range .Site.Taxonomies.categories }}
+					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
 				{{ end }}
-			{{ else }}
-				{{ range .Data.Pages.ByPublishDate }}
-					{{ if .Params.tags }}
-						{{ partial "tag" . }}
-					{{ else if .Params.categories }}
-						{{ partial "categories" . }}
-					{{ end }}
-				{{ end }}
-			{{ end }}
-		</div>
-		{{ partial "footer" . }}
-	</div>
+			</ul>
+		{{ end }}
+	{{ else }}
+		{{ range .Data.Pages.ByPublishDate }}
+			{{ partial "tag" . }}
+		{{ end }}
+	{{ end }}
 {{ end }}
