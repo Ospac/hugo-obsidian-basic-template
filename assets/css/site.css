@@ -55,7 +55,9 @@
 }
 
 @media (max-width: 767.98px) {
-  html { font-size: 0.9rem; }
+  html {
+    font-size: 0.9rem;
+  }
 }
 
 body {
@@ -73,11 +75,19 @@ body {
 
 /* 본문 내 텍스트 요소 */
 b,
-strong { font-weight: bolder; }
+strong {
+  font-weight: bolder;
+}
 em,
-i { font-style: italic; }
-small { font-size: 0.875em; }
-p { margin-bottom: 1.3rem; }
+i {
+  font-style: italic;
+}
+small {
+  font-size: 0.875em;
+}
+p {
+  margin-bottom: 1.3rem;
+}
 
 img {
   display: block;
@@ -101,12 +111,24 @@ h6 {
   font-weight: 500;
   line-height: 1.2;
 }
-h1 { font-size: var(--font-h1); }
-h2 { font-size: var(--font-h2); }
-h3 { font-size: var(--font-h3); }
-h4 { font-size: var(--font-h4); }
-h5 { font-size: var(--font-h5); }
-h6 { font-size: var(--font-h6); }
+h1 {
+  font-size: var(--font-h1);
+}
+h2 {
+  font-size: var(--font-h2);
+}
+h3 {
+  font-size: var(--font-h3);
+}
+h4 {
+  font-size: var(--font-h4);
+}
+h5 {
+  font-size: var(--font-h5);
+}
+h6 {
+  font-size: var(--font-h6);
+}
 
 /* 링크 */
 a {
@@ -119,7 +141,9 @@ a:focus {
   color: var(--color-link-text-hover);
   text-decoration: underline;
 }
-a > code { color: inherit; }
+a > code {
+  color: inherit;
+}
 
 /* 리스트 */
 ol,
@@ -127,8 +151,12 @@ ul {
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
-li { margin-left: 1.89rem; }
-ul li { margin-left: 0.4rem; }
+li {
+  margin-left: 1.89rem;
+}
+ul li {
+  margin-left: 0.4rem;
+}
 
 /* 마크다운 본문 */
 pre,
@@ -154,18 +182,20 @@ td {
    -------------------------------------------------------------------------- */
 
 .page {
-  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 var(--content-gutter);
 }
 @media (min-width: 768px) {
   .page {
     max-width: 720px;
-    padding: 0 var(--content-gutter);
+    padding: 0 calc(var(--content-gutter) * 1.5);
   }
 }
 @media (min-width: 992px) {
   .page {
     max-width: 640px;
+    padding: 0 calc(var(--content-gutter) * 2);
   }
 }
 
@@ -265,6 +295,11 @@ td {
   list-style: none;
   padding-left: 0;
 }
+.article-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0;
+}
 .article-list .inline {
   display: inline;
   margin-left: 0;
@@ -286,9 +321,6 @@ td {
   color: var(--color-meta-text);
   margin-bottom: 2rem;
 }
-.article-list li {
-  margin-left: 0;
-}
 
 /* 이전/다음 글 내비게이션 */
 .post-nav {
@@ -299,7 +331,7 @@ td {
 
 /* 본문 글 첫 글자를 크게 보여주는 스타일 (드롭캡) */
 .first-letter {
-	font-family: "Noto Serif Display";
-	font-size: 4rem;
-	float: left;
+  font-family: "Noto Serif Display";
+  font-size: 4rem;
+  float: left;
 }

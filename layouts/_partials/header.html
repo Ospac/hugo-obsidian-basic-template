@@ -1,22 +1,23 @@
 <div class="header">
-	<header>
-		<h1 class="name">
-			<a href="{{ .Site.BaseURL }}">{{ .Site.Params.sitename }}</a>
-		</h1>
-		<ul class="nav">
-			{{ range .Site.Menus.primary.ByWeight }}
-				<li>
-					<a
-						class="nav-link{{ if eq .URL page.RelPermalink }} active{{ end }}"
-						href="{{ .URL }}"
-					>
-						{{ .Pre }} {{ .Name }}
-					</a>
-				</li>
-			{{ end }}
-			<!--{{ if gt (len hugo.Sites) 1 }}
-				{{ partial "languages-list" . }}
-			{{end}}-->
-		</ul>
-	</header>
+  <header>
+    <h1 class="name">
+      <a href="{{ .Site.BaseURL }}">{{ .Site.Params.sitename }}</a>
+    </h1>
+    <ul class="nav">
+      {{ range .Site.Menus.primary.ByWeight }}
+        <li>
+          <a
+            class="nav-link{{ if eq .URL page.RelPermalink }}active{{ end }}"
+            href="{{ .URL }}"
+          >
+            {{ .Pre }}
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+      <!--{{ if gt (len hugo.Sites) 1 }}
+        {{ partial "languages-list" . }}
+      {{ end }}-->
+    </ul>
+  </header>
 </div>

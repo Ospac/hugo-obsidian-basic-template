@@ -1,24 +1,18 @@
 {{ define "main" }}
-	<h2>#{{ .Title }}</h2>
-	<hr>
-	{{ if eq .Kind "taxonomy" }}
-		{{ if eq .Title "Tags" }}
-			<ul style="list-style: disclosure-closed">
-				{{ range .Site.Taxonomies.tags }}
-					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
-				{{ end }}
-			</ul>
-		{{ end }}
-		{{ if eq .Title "Categories" }}
-			<ul style="list-style: disclosure-closed">
-				{{ range .Site.Taxonomies.categories }}
-					<li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
-				{{ end }}
-			</ul>
-		{{ end }}
-	{{ else }}
-		{{ range .Data.Pages.ByPublishDate }}
-			{{ partial "tag" . }}
-		{{ end }}
-	{{ end }}
+  <h2>#{{ .Title }}</h2>
+  <hr />
+  {{ if eq .Kind "taxonomy" }}
+    <ul style="list-style: disclosure-closed">
+      {{ range .Data.Terms.Alphabetical }}
+        <li>
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+          {{ .Count }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    {{ range .Data.Pages.ByPublishDate }}
+      {{ partial "tag" . }}
+    {{ end }}
+  {{ end }}
 {{ end }}

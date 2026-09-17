@@ -1,16 +1,16 @@
 {{ define "main" }}
-	<div class="markdown">
-		{{ .Content }}
-	</div>
-	<div class="posts">
-		<ul class="article-list">
-			{{ range sort .Pages "Title" "asc" }}
-			<li>
-				<a href="{{ .Permalink }}">
-					<span>{{ .Title }}</span>
-				</a>
-			</li>
-			{{ end }}
-		</ul>
-	</div>
+  <div class="markdown">
+    {{ .Content }}
+  </div>
+  <div class="posts">
+    <ul class="article-list">
+      {{ range sort .Pages "Title" "asc" }}
+        <li>
+          <a href="{{ .Permalink }}">
+            <span>{{ .Title }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
 {{ end }}

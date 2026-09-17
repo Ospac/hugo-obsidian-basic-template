@@ -5,10 +5,9 @@ date: "2022-09-25T12:00:00"
 brief: "7 paragraphs of lorem ipsum. enjoy!"
 
 tags:
-    - news
-    - Demo
+  - news
+  - Demo
 ---
-
 
 <span class="first-letter">W</span>hat are you reading 🤣. lorem ipsum
 dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

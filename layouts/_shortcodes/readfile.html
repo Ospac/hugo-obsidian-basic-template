@@ -1,8 +1,20 @@
-{{$file := .Get "file"}}
-{{- if eq (.Get "markdown") "true" -}}
-{{- $file  | readFile | markdownify -}}
-{{- else if  (.Get "highlight") -}}
-{{-  highlight ($file  | readFile) (.Get "highlight") "" -}}
+{{/* readfile: 외부 파일을 읽어 페이지에 삽입하는 shortcode */}}
+{{/* 예시: */}}
+{{/* {{< readfile file="경로" >}} → HTML 그대로 */}}
+{{/* {{< readfile file="경로" markdown="true" >}} → 마크다운으로 */}}
+{{/* {{< readfile file="경로" highlight="go" >}} → 코드 하이라이팅 */}}
+{{- $file := .Get "file" -}}
+{{- $src := "" -}}
+{{- with $file }}{{ $src = . | readFile }}{{ end -}}
+{{- if not $src -}}
+  <p style="color: #c00;">
+    <strong>readfile error:</strong>
+    cannot read "{{ $file }}"
+  </p>
+{{- else if eq (.Get "markdown") "true" -}}
+  {{- $src | markdownify -}}
+{{- else if .Get "highlight" -}}
+  {{- highlight $src (.Get "highlight") "" -}}
 {{- else -}}
-{{ $file  | readFile | safeHTML }}
+  {{- $src | safeHTML -}}
 {{- end -}}

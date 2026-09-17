@@ -1,40 +1,43 @@
 {{ define "main" }}
-	<h1 class="blog-post-title">{{ .Title }}</h1>
-	<div class="meta">
-	  {{ if .Params.brief }}
-	  <div class="meta-brief">{{ .Params.brief }}</div>
-	  {{ end }}
-	  {{ if not .Params.noauthor }}
-	  {{ if .Params.author }}
-	  <span class="author" title="{{ .Params.Author }}">{{ .Params.author }}</span>
-	  {{ end }}
-	  {{ end }}
-	  <span class="middot" title='{{ .Date.Format "Mon Jan 2 2006 15:04:05 MST" }}'>{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}</span>
-	  <span class="middot">{{ .ReadingTime }} min read</span>
-	  <a class="middot" href="{{ .Permalink | absURL }}">Permalink</a>
-	  <div class="tags">
-	    <ul class="article-list">
-	      {{ range .Params.tags}}
-	      <li class="inline">
-		<a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">
-		  #{{ . }}
-		</a>
-	      </li>
-	      {{ end }}
-	    </ul>
-	  </div>
-	</div>
-	<div class="markdown blog-post-content">
-	  {{ .Content }}
-	</div>
-	{{ if .Site.Params.posts_navigation }}
-	<div class="post-nav">
-	  {{ if .PrevInSection }}
-	  <a class="prev" href="{{ .PrevInSection.Permalink }}">« {{ .PrevInSection.Title }}</a>
-	  {{ end }}
-	  {{ if .NextInSection }}
-	  <a class="next" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} »</a>
-	  {{ end }}
-	</div>
-	{{ end }}
+  <h1 class="blog-post-title">{{ .Title }}</h1>
+  <div class="meta">
+    <div class="meta-brief">{{ .Params.brief }}</div>
+    {{ if .Params.author }}
+      <span class="author" title="{{ .Params.Author }}">
+        {{ .Params.author }}
+      </span>
+    {{ end }}
+    <span
+      class="middot"
+      title="{{ .Date.Format "Mon Jan 2 2006 15:04:05 MST" }}"
+    >
+      {{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}
+    </span>
+    <span class="middot">{{ .ReadingTime }} min read</span>
+    <a class="middot" href="{{ .Permalink | absURL }}">Permalink</a>
+    <div class="tags">
+      <ul class="article-list">
+        {{ range .Params.tags }}
+          <li class="inline">
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+  <div class="markdown blog-post-content">{{ .Content }}</div>
+  {{ if .Site.Params.posts_navigation }}
+    <div class="post-nav">
+      {{ if .PrevInSection }}
+        <a class="prev" href="{{ .PrevInSection.Permalink }}">
+          « {{ .PrevInSection.Title }}
+        </a>
+      {{ end }}
+      {{ if .NextInSection }}
+        <a class="next" href="{{ .NextInSection.Permalink }}">
+          {{ .NextInSection.Title }} »
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 {{ end }}

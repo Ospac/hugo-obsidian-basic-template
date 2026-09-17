@@ -5,18 +5,19 @@
     </h4>
     <div class="meta-data">
       <span>
-	{{ if .Params.categories }}
-	[ {{ delimit .Params.categories ", " }} ]
-	{{ else }}
-	[ {{ .Section }} ]
-	{{ end }}
+        {{ if .Params.categories }}
+          [ {{ delimit .Params.categories ", " }} ]
+        {{ else }}
+          [ {{ .Section }} ]
+        {{ end }}
       </span>
-      <time class="middot" datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">
-	{{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}
+      <time
+        class="middot"
+        datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}"
+      >
+        {{ .Date.Format (.Site.Params.dateform | default "2006/01/02") }}
       </time>
-      <span>
-	{{ range .Params.tags }} #{{.}} {{end}}
-      </span>
+      <span>{{ range .Params.tags }}#{{ . }}{{ end }}</span>
     </div>
   </li>
 </ul>

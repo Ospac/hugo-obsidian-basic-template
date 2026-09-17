@@ -1,2 +1,16 @@
-<img src={{ .Get "src" }} {{ with .Get "alt"}}alt="{{ . }}"{{ end }} {{ with .Get "width"}}width="{{.}}"{{ end }} {{ with .Get "height"}}height="{{ . }}"{{ end }}>
+{{/* img: 이미지를 렌더링하는 shortcode */}}
+{{/* 예시: */}}
+{{/* {{< img src="URL" alt="설명" width="400" caption="캡션" >}} */}}
+
+<img
+  src="{{ .Get "src" }}"
+  {{ with .Get "alt" }}alt='{{ . }}'{{ end }}
+  {{ with .Get "width" }}width='{{ . }}'{{ end }}
+  {{ with .Get "height" }}height='{{ . }}'{{ end }}
+  {{ with .Get "loading" }}
+    loading='{{ . }}'
+  {{ else }}
+    loading='lazy'
+  {{ end }}
+/>
 {{ with .Get "caption" }}<p class="caption">{{ . }}</p>{{ end }}

@@ -1,7 +1,7 @@
 baseURL: "/"
 locale: ko-KR
 title: "홈페이지 제목"
-author: ksh
+author: "이름"
 
 enableEmoji: true
 hasCJKLanguage: false
@@ -38,16 +38,6 @@ languages:
     # contentDir: content/blog/en
 params:
   sitename: "홈페이지 이름"
-  copyrights: 저작권자 이름
-
-  # path to the favicon directory
-  # see ./layouts/baseof.html line #30 to line #37
-  #  faviconpath: "/img/favicon"
-
-  # 홈 화면 상단에 표시되는 짧은 소개글
-  brief_about: <center>안녕하세요 저는 새로운 코드를 기다리고 있어요</center>
-
-  # 아래는 설정하지 않아도 되지만, 템플릿이 알아서 사용하는 선택 항목입니다.
 
   # 트위터(X) 계정 (@ 없이). 설정하면 트위터 카드 메타태그에 사용됩니다.
   #  twitter: "your_twitter_handle"
@@ -64,7 +54,7 @@ params:
   # 홈 화면의 "더 보기" 링크가 가리키는 경로. 기본값은 blog.
   #  archive: "blog"
 
-  # 홈 화면에 보여줄 글 개수 (globallist 파셜). 설정하지 않으면 전체가 표시됩니다.
+  # 홈 화면에 보여줄 글 개수 (globallist). 설정하지 않으면 전체가 표시됩니다.
   #  paginationLen: 5
 
   # 글 상세 페이지에 이전/다음 글 이동 링크를 표시할지 여부.

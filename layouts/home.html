@@ -1,27 +1,31 @@
 {{ define "main" }}
-	<style>
-		.recent-articles { 
-			margin-bottom: 0.8rem; 
-		}
-		.more-links { 
-			font-size: 1rem; text-align: center; 
-		}
-	</style>
-	<div class="brief">{{ .Site.Params.brief_about | safeHTML }}</div>
-	<hr />
-	<div class="recent-section">
-		<h4 class="recent-articles">최근 글</h4>
-		{{ range .Data.Pages.GroupByDate "2006" "desc" }}
-			{{ range (sort .Pages "Date" "desc") }}
-				{{ partial "recent-list" . }}
-			{{ end }}
-		{{ end }}
-		<span class="more-links">
-			<a
-				href="{{ .Permalink }}{{ if .Site.Params.archive }}{{ .Site.Params.archive }}{{ else }}blog{{ end }}"
-			>
-				더 많은 글
-			</a>
-		</span>
-	</div>
+  <style>
+    .more-links {
+      font-size: 1rem;
+      text-align: center;
+    }
+  </style>
+  <div class="brief">안녕하세요? 이곳은 ...!</div>
+  <hr />
+  <div class="recent-section">
+    <h4 class="recent-articles">최근 글</h4>
+    {{ range .Data.Pages.GroupByDate "2006" "desc" }}
+      {{ range (sort .Pages "Date"
+        "desc")
+      }}
+        {{ partial "recent-list" . }}
+      {{ end }}
+    {{ end }}
+    <span class="more-links">
+      <a
+        href="{{ .Permalink }}{{ if .Site.Params.archive }}
+          {{ .Site.Params.archive }}
+        {{ else }}
+          blog
+        {{ end }}"
+      >
+        더 많은 글
+      </a>
+    </span>
+  </div>
 {{ end }}

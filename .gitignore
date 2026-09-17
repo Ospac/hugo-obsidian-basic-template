@@ -23,3 +23,9 @@ hugo.linux
 # editor
 .zed
 .vscode
+
+# local Prettier setup
+.prettierrc
+package.json
+package-lock.json
+node_modules/

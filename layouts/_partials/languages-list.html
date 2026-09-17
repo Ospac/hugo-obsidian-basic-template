@@ -1,9 +1,11 @@
 <!-- Dont put the current language in the nav -->
 <!-- only put the other languages -->
 {{ range $i := $.Site.Home.AllTranslations }}
-	{{ if ne $.Site.Language $i.Language }}
-		<li>
-			<a class="nav-link" href="{{ $i.Permalink }}"> {{ $i.Language.Label }} </a>
-		</li>
-	{{end}}
+  {{ if ne $.Site.Language
+    $i.Language
+  }}
+    <li>
+      <a class="nav-link" href="{{ $i.Permalink }}">{{ $i.Language.Label }}</a>
+    </li>
+  {{ end }}
 {{ end }}
